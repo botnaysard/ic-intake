@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Info Cannabis Intake Questionnaire</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="scripts/ic-calc.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+<body>
+	<section>
+		<div>
+			<form id="client-intake-form">
+				<h3>1. Vital Stats</h3>
+				Name: <input type="text" name="usr-name">
+				<br>
+				Age: <input type="number" min="18" max="125" name="usr-age">
+				<br>
+				Sex: <select name="usr-sex">
+					  <option value="male">Male</option>
+					  <option value="female">Female</option>
+					</select>
+				<br>
+				*Address: <input type="text" name="usr-address"> *City: <input type="text" name="usr-city"> *Province: <input type="text" name="usr-prov"> *Postal Code: <input type="text" name="usr-post">
+				<br>
+				*E-mail: <input type="email" name="usr-email">
+				<br>
+				*Telephone: <input type="tel" name="usr-tel">
+				<br>
+				*Family Doctor's Name: <input type="text" name="gp-name"> *City of practice <input type="text" name="gp-city">
+				<h3>2. Medical Information</h3>
+				<br>
+				*Which of the following, if any, do you use? (check all that apply)
+				<br>
+				<input type="checkbox" name="tobacco" value="tobacco">Tobacco
+				<br>
+				<input type="checkbox" name="alcohol" value="alcohol">Alchol
+				<br>
+				<input type="checkbox" name="streets" value="streets">"Street" Drugs
+				<br>
+				If you checked any of the above, please describe how much and how often:
+				<input type="text" name="adulterant-desc">
+				<br>
+				Please check the condition(s) that affect you.
+				<br>
+				<input type="checkbox" name="adhd" value="adhd" class="affected-by">ADD/ADHD
+				<br>
+				<input type="checkbox" name="alzh" value="alzh" class="affected-by">Alzheimer's
+				<br>
+				<input type="checkbox" name="anxi" value="anxi" class="affected-by">Anxiety
+				<br>
+				<input type="checkbox" name="arth" value="arth" class="affected-by">Arthritis
+				<br>
+				<input type="checkbox" name="brai" value="brai" class="affected-by">Brain Injury
+				<br>
+				<input type="checkbox" name="canc" value="canc" class="affected-by">Cancer
+				<br>
+				<input type="checkbox" name="cnaus" value="cnaus" class="affected-by">Chronic Nausea
+				<br>
+				<input type="checkbox" name="cpain" value="cpain" class="affected-by">Chronic Pain
+				<br>
+				<input type="checkbox" name="chron" value="chron" class="affected-by">Crohn’s/Colitis
+				<br>
+				<input type="checkbox" name="depr" value="depr" class="affected-by">Depression
+				<br>
+				<input type="checkbox" name="diab" value="diab" class="affected-by">Diabetes
+				<br>
+				<input type="checkbox" name="eatd" value="eatd" class="affected-by">Eating Disorder
+				<br>
+				<input type="checkbox" name="epil" value="epil" class="affected-by">Epilepsy
+				<br>
+				<input type="checkbox" name="fibro" value="fibro" class="affected-by">Fibromyalgia
+				<br>
+				<input type="checkbox" name="gast" value="gast" class="affected-by">Gastrointestinal Problems
+				<br>
+				<input type="checkbox" name="head" value="head" class="affected-by">Head Injury
+				<br>
+				<input type="checkbox" name="hepc" value="hepc" class="affected-by">Hepatitis C
+				<br>
+				<input type="checkbox" name="aids" value="aids" class="affected-by">HIV/AIDS
+				<br>
+				<input type="checkbox" name="ibs" value="ibs" class="affected-by">Irritable Bowel Syndrome
+				<br>
+				<input type="checkbox" name="kidf" value="kidf" class="affected-by">Kidney Failure/Dialysis
+				<br>
+				<input type="checkbox" name="migr" value="migr" class="affected-by">Migraines
+				<br>
+				<input type="checkbox" name="mult" value="mult" class="affected-by">Multiple Sclerosis
+				<br>
+				<input type="checkbox" name="spas" value="spas" class="affected-by">Muscle Spasms
+				<br>
+				<input type="checkbox" name="dyst" value="dyst" class="affected-by">Muscular Dystrophy
+				<br>
+				<input type="checkbox" name="naus" value="naus" class="affected-by">Nausea
+				<br>
+				<input type="checkbox" name="park" value="park" class="affected-by">Parkinson’s Disease
+				<br>
+				<input type="checkbox" name="ptsd" value="ptsd" class="affected-by">Post Traumatic Stress Disorder
+				<br>
+				<input type="checkbox" name="grav" value="grav" class="affected-by">Grave and Debilitating illnesses
+				<br>
+				<input type="checkbox" name="oth" value="oth" class="affected-by">Other
+				<br>
+				<h3>3. Cannabis Use</h3>
+				Do you presently use Cannabis for relief?: <select name="usr-use">
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</select>
+				<br>
+				If yes to previous, which of the following best describes your Cannabis use:<br>
+				<input type="radio" name="usage" value="rarely" class="howmuch"> Rarely<br>
+				<input type="radio" name="usage" value="monthly" class="howmuch"> A few times per month<br>
+				<input type="radio" name="usage" value="weekly" class="howmuch"> A few times per week<br>
+				<input type="radio" name="usage" value="daily" class="howmuch"> Daily<br>
+				<input type="radio" name="usage" value="lots" class="howmuch"> Several times per day<br>
+				How do you prefer to consume Cannabis? (check all that apply)
+				<br>
+				<input type="checkbox" name="oils" value="oils" class="route">Extract - oils
+				<br>
+				<input type="checkbox" name="butter" value="butter" class="route">Extract - butter
+				<br>
+				<input type="checkbox" name="rosin" value="rosin" class="route">Extract - rosin
+				<br>
+				<input type="checkbox" name="juice" value="juice" class="route">Raw - juicing
+				<br>
+				<input type="checkbox" name="vape" value="vape" class="route">Vaporizer
+				<br>
+				<input type="checkbox" name="combust" value="combust" class="route">Combustion (joints, bong, etc.)
+				<br>
+				*Do you obtain cannabis through non-legal means?
+				<select name="usr-obtain">
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</select>
+				<br>
+				*If yes to previous, would you continue to do so if you were unable to obtain a prescription for cannabis?
+				<select name="usr-continue">
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</select>
+				<br>
+				Are you interested in growing Cannabis? <br>
+				<input type="radio" name="grower" value="yes" class="want-grow"> Yes
+				<br>
+				<input type="radio" name="grower" value="no" class="want-grow"> No
+				<br>
+				If yes to previous, who do you plan to grow Cannabis for? (check all that apply)
+				<br>
+				<input type="checkbox" name="personal" value="self" class="for-who">myself (personal consumption only)
+				<br>
+				<input type="checkbox" name="produces" value="others" class="for-who">another individual (designated grower)
+				<br>
+				<input type="submit" name="submit-button">
+			</form>
+		</div>
+	</section>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
