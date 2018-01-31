@@ -6,56 +6,24 @@ $(document).ready(function(){
 	var incrementSize = 1;
 	var backCounter = 1;
 	var crumbCounter = 1;
-	var insertSubstances = "";
 
 	$('.nav-button').click(function(){
 
-		if( $('.adulterants:checkbox:checked').length > 0 ){
-			$("#step7").addClass("show-it");
-			insertSubstances = $('input:checkbox:checked.adulterants').map(function () {
-			return this.value;
-			});
-			var inserted = document.getElementById('inserted');
-    		for(var i = 0; i < insertSubstances.length; i++){
-    			// add check to make sure that each element is not inserted more than once // 
-        		inserted.innerHTML += "- " + insertSubstances[i] + "<br>";
-    		}
-	
-		} else {
-			$("#step7").removeClass("show-it");
-		}
-
-	
-  			
 		$('#step' + counter).hide();
 
 		direction = this.id;
 		
+		if ($("#step11").is("visible") && direction == "previous") {
+			incrementSize = 1;
+		} 
 
 		if (direction == "previous" && counter >= 2) {	
-			counter -= 1;
+			counter -= incrementSize;
 		} else if (direction == "next" && counter <= 14) {
-			counter += 1;
+			counter += incrementSize;
 		}	
 
-
-		if ( $("#step" + counter).hasClass("show-it")) {		
-			$('#step' + counter).fadeIn();
-		} else {
-
-			while(!$("#step" + counter).hasClass("show-it")) {
-
-			if (direction == "previous" && counter >= 2) {	
-			counter -= 1;
-			} else if (direction == "next" && counter <= 14) {
-			counter += 1;
-			}
-
-		} $('#step' + counter).fadeIn();
-
-
-		}
-
+		$('#step' + counter).fadeIn();
 		if (counter == 1) {
 			$('#previous').removeClass("make-table").hide();
 			crumbCounter = 1;
@@ -73,18 +41,35 @@ $(document).ready(function(){
 			$('#previous').show();
 			crumbCounter = 4;
 
+			if ($('#step11').is(":visible")) {
+				check = $("#11-a").val();
+				if (direction == "previous") {
+					incrementSize = 1;
+				} else if (direction === "next") {
+					if (check == "yes") {
+						incrementSize = 1;
+					} else if (check == "no") {
+						incrementSize = 3;
+					} 
+				}
+
+
+				/* this needs another exception: if value changed to "no" and back is pressed, the increment size needs to = 1 */
+
 				$('#11-a').on('change', function() {
-			    	if (this.value == 'yes') {
-			    		$("#11-b, #11-c").slideDown();
-			        	$("#step12, #step13").addClass("show-it")
-			      	}
-			      	else {
-			        	$("#11-b, #11-c").slideUp();
-			        	$("#step12, #step13").removeClass("show-it"); 	
+			      if (this.value == 'yes') {
+			        $("#11-b, #11-c").slideDown();
+			        incrementSize = 1;
+			      }
+			      else {
+			        $("#11-b, #11-c").slideUp() 	
+			        		incrementSize = 3;
 			        }
 			      
 			    });
 			 }
+
+			 /***************************************************************************************************************/
 
 
 			if ($('#step14').is(":visible")) {
@@ -98,17 +83,8 @@ $(document).ready(function(){
 			    });
 			}
 
-			
-		
-			
-
-			
-
-
-
-
-		if (counter >= 15) {
-			$('#next').html('<input type="submit" name="submit-button" id="submit-button" value="&#xf1d8;">');
+		} else if (counter >= 15) {
+			$('#next').html('<input type="submit" name="submit-button" id="submit-button" value="Send">');
 			crumbCounter = 5;
 			$('#submit-button').click(function(){
 				$('#client-intake-form').submit();

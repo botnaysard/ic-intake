@@ -1,3 +1,19 @@
+// variables //
+
+// colors //
+$primary: #4CAF50;
+$primary-dark: #388E3C;
+$primary-light: #C8E6C9;
+$accent: #607D8B;
+$text-icons: #FFFFFF;
+$primary-text: #212121; 
+$secondary-text: #757575;
+$divider: #BDBDBD;
+$attention: #F44336;
+$main-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$button-sides: 4%;
+$button-bottom: 45%;
+
 // styles //
 
 html, body {
@@ -7,7 +23,7 @@ html, body {
   padding: 0px;
   margin: 0px;
   overflow: hidden;
-  color: #212121;
+  color: $primary-text;
   font-family: 'Gudea', sans-serif;
 }
 
@@ -21,7 +37,7 @@ h3 {
 }
 
 span {
-	color: #C8E6C9;
+	color: $primary-light;
 }
 
 // custom checkmark //
@@ -51,27 +67,27 @@ span {
     left: 0;
     height: 30px;
     width: 30px;
-    background-color: white;
-    border: 1px solid #BDBDBD;
+    background-color: $text-icons;
+    border: 1px solid $divider;
     border-radius: 50%;
 }
 
 /* mouse over */
 
 .custom-check:hover input ~ .checkmark, .custom-radio:hover input ~ .radiodot {
-    background-color: #C8E6C9;
+    background-color: $primary-light;
 }
 
 /* when checked  */
 
 .custom-check input:checked ~ .checkmark {
-    background-color: #388E3C;
-    border: 1px solid #388e3C;
+    background-color: $primary-dark;
+    border: 1px solid $primary-dark;
 }
 
 .custom-radio input:checked ~ .radiodot {
-	background-color: #388e3C;
-	border: 1px solid #388e3C;	
+	background-color: $primary-dark;
+	border: 1px solid $primary-dark;	
 }
 
 /* make checkmark (hidden when not checked) */
@@ -95,7 +111,7 @@ span {
     top: 5px;
     width: 6px;
     height: 15px;
-    border: solid white;
+    border: solid $text-icons;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
@@ -103,12 +119,11 @@ span {
 }
 
 .custom-radio .radiodot:after {
-    left: 0px;
-    top: 0px;
-    width: 30px;
-    height: 30px;
-    background-color: #388E3C;
-    border: 1px solid #388e3C;
+    left: 1px;
+    top: 1px;
+    width: 0px;
+    height: 0px;
+    background-color: $primary-dark;
     border-radius: 50%;
 
 }
@@ -116,7 +131,7 @@ span {
 // end custom checkmark //
 
 .text-green {
-	color: white;
+	color: $text-icons;
 }
 
 #logo {
@@ -124,7 +139,7 @@ span {
 	left: 10px;
 	top: 10px;
 	z-index: 100;
-	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	box-shadow: $main-shadow;
 	height: 100px;
 	width: 100px;
 }
@@ -134,20 +149,20 @@ span {
 }
 
 #one {
-	background-color: #4CAF50;
+	background-color: $primary;
 	height: 10%;
 	display: table;
 	z-index: 50;
-	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	box-shadow: $main-shadow;
 }
 
 #two {
-	background-color: white;
+	background-color: $text-icons;
 	height: 80%;
 }
 
 #three {
-	background-color: #4CAF50; /* or try white for this section */
+	background-color: $primary; /* or try $text-icons for this section */
 	height: 10%;
 	z-index: 50;
 }
@@ -160,7 +175,7 @@ span {
 	font: {
 		size: 1.5em;
 	}
-	color: #C8E6C9;
+	color: $primary-light;
 	padding: 0 12.5%;
 }
 
@@ -187,10 +202,10 @@ span {
 
 #client-intake-form input:not([type=submit]), #client-intake-form select, textarea {
 	margin: 0 0 1.5em 0;
-	background-color: white;
-	border: 1px solid #BDBDBD;
+	background-color: $text-icons;
+	border: 1px solid $divider;
 	padding: 0.1em;
-	color: #757575;
+	color: $secondary-text;
 	border-radius: 2px;
 }
 
@@ -222,10 +237,10 @@ span {
 	border-radius: 50%;
 	margin-top: 0.75em;
 	position: absolute;
-	background-color: #607D8B;
+	background-color: $accent;
 	text-align: center;
 	display: table;
-	color: white;
+	color: $text-icons;
 	font: {
 		size: 1.3em;
 	}
@@ -243,13 +258,13 @@ span {
 }
 
 #next {
-	right: 4%;
-	bottom: 45%;
+	right: $button-sides;
+	bottom: $button-bottom;
 }
 
 #previous {
-	left: 4%;
-	bottom: 45%;
+	left: $button-sides;
+	bottom: $button-bottom;
 }
 
 #next-text, #prev-text {
@@ -259,32 +274,23 @@ span {
 
 #submit-button {
 	width: 100px;
-	height:100px;
+	height: 100px;
 	border-radius: 50%;
-	color: white;
-	background-color: #F44336;
+	color: $text-icons;
+	background-color: $attention;
 	border: none;
 }
 
 #submit-button:hover {
-	color: white;
+	color: $text-icons;
 	border: none;
 }
 
-#step2, 
-#step3, 
-#step4, 
-#step5, 
-#step6,
-#step7,
-#step8,
-#step9,
-#step10,
-#step11, 
-#step12,
-#step13,
-#step14,
-#step15,
+
+@for $i from 2 through 15 {
+  #step#{$i} { display: none; }
+}
+
 #conclusion,
 #previous {
 	display: none;
@@ -304,10 +310,6 @@ span {
 
 .make-table {
 	display: table !important;
-}
-
-#frm_form_38_container .btn {
-  font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 #submit-button {
@@ -351,5 +353,5 @@ span {
 }
 
 #inserted {
-	color: #212121;
+	color: $primary-text;
 }
