@@ -18,14 +18,15 @@ $(document).ready(function(){
 			var inserted = document.getElementById('inserted');
     		for(var i = 0; i < insertSubstances.length; i++){
     			// add check to make sure that each element is not inserted more than once // 
-        		inserted.innerHTML += "- " + insertSubstances[i] + "<br>";
+    			if (!(inserted.innerHTML.indexOf(insertSubstances[i]) != -1)) { 
+					inserted.innerHTML += "- " + insertSubstances[i] + "<br>";
+        		} else if ((inserted.innerHTML.indexOf(insertSubstances[i]) != -1)) { 
+    				$("#inserted").html($("#inserted").html().split("- " + insertSubstances[i] + "<br>").join(""));
+				}
     		}
-	
 		} else {
 			$("#step7").removeClass("show-it");
 		}
-
-	
   			
 		$('#step' + counter).hide();
 
