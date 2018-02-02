@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Info Cannabis Intake Questionnaire</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript" src="scripts/ic-calc.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles/normalize.css">
@@ -31,18 +30,18 @@
 							<p>Click the arrow to get started.</p>
 						</div>
 						<div id="step2" class="show-it">
-							Given Name: <input type="text" name="usr-fname" required>
+							Given Name: <input type="text" name="usr-fname" class="form-input">
 							<br>
-							Last Name: <input type="text" name="usr-lname">
+							Last Name: <input type="text" name="usr-lname" class="form-input">
 							<br>
-							Age: <input type="number" min="18" max="125" name="usr-age">
+							Age: <input type="number" min="18" max="125" name="usr-age" class="form-input">
 							<br>
-							Sex: <select name="usr-sex">
+							Sex: <select name="usr-sex" class="form-input">
 								  <option value="male">Male</option>
 								  <option value="female">Female</option>
 								</select>
 						</div>
-						<div id="step3" class="show-it">
+						<div id="step3" class="show-it form-input">
 							<!-- begin postal code validation script -->
 							<script type="text/javascript">
 								function validatePostal(sPostal) {
@@ -55,9 +54,9 @@
 								}
 							</script>
 							<!-- end postal code validation script -->
-							Address: <input type="text" name="usr-address">
+							Address: <input type="text" name="usr-address" class="form-input">
 							<br> 
-							City: <input type="text" name="usr-city"> 
+							City: <input type="text" name="usr-city"class="form-input"> 
 							<br>
 							Province: 
 							<select name="usr-prov">
@@ -76,7 +75,7 @@
 								<option value="yukon">YT</option>
 							</select>
 							<br>
-							Postal Code: <input id="p-code" type="text" name="usr-post" onblur="validatePostal(this.value);">
+							Postal Code: <input id="p-code" class="form-input" type="text" name="usr-post" onblur="validatePostal(this.value);">
 						</div>
 						<div id="step4" class="show-it">
 							<!-- begin e-mail validation script -->
@@ -101,15 +100,15 @@
 								}
 							</script>
 							<!-- end e-mail validation script -->
-							E-mail: <input type="email" name="usr-email" onblur="validateEmail(this.value);">
+							E-mail: <input type="email" name="usr-email" class="form-input" onblur="validateEmail(this.value);">
 							<br>
-							Telephone: <input type="tel" name="usr-tel" onblur="validatePhone(this.value);">
+							Telephone: <input type="tel" name="usr-tel" class="form-input" onblur="validatePhone(this.value);">
 							<br>
 						</div>
 						<div id="step5" class="show-it">
-							Family Doctor: <input type="text" name="gp-name">
+							Family Doctor: <input type="text" name="gp-name" class="form-input">
 							<br>
-							City of practice: <input type="text" name="gp-city">
+							City of practice: <input type="text" name="gp-city" class="form-input">
 						</div>
 						<div id="step6" class="show-it">
 							Do you use any of the following? (check all that apply)
@@ -274,7 +273,7 @@
 								<option value="no">No</option>
 							</select>
 							<br>
-							<div id="11-b">If yes, how often do you use it?</div>
+							<div id="11-b">How often do you use it?</div>
 							<div class="cannabis-radio" id="11-c">
 								<label class="custom-radio">Rarely
 								  <input type="radio" name="usage" value="rarely" class="howmuch">

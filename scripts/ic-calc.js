@@ -7,8 +7,19 @@ $(document).ready(function(){
 	var backCounter = 1;
 	var crumbCounter = 1;
 	var insertSubstances = "";
-
+ 
 	$('.nav-button').click(function(){
+
+		// start make sure required fields have content (doesn't work)
+
+		var inputs = document.getElementsByClassName("form-input");
+		for(i = 0; i < inputs.length; i++) {
+			var currentInput = inputs[i];
+			
+		}
+
+		// end make sure required fields have content	
+
 
 		if( $('.adulterants:checkbox:checked').length > 0 ){
 			$("#step7").addClass("show-it");
