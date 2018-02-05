@@ -30,18 +30,18 @@
 							<p>Click the arrow to get started.</p>
 						</div>
 						<div id="step2" class="show-it">
-							Given Name: <input type="text" name="usr-fname" class="form-input">
+							Given Name: <input type="text" name="usr-fname" class="form-input" required>
 							<br>
-							Last Name: <input type="text" name="usr-lname" class="form-input">
+							Last Name: <input type="text" name="usr-lname" class="form-input" required>
 							<br>
-							Age: <input type="number" min="18" max="125" name="usr-age" class="form-input">
+							Age: <input type="number" min="18" max="125" name="usr-age" class="form-input" required>
 							<br>
-							Sex: <select name="usr-sex" class="form-input">
+							Sex: <select name="usr-sex">
 								  <option value="male">Male</option>
 								  <option value="female">Female</option>
 								</select>
 						</div>
-						<div id="step3" class="show-it form-input">
+						<div id="step3" class="show-it">
 							<!-- begin postal code validation script -->
 							<script type="text/javascript">
 								function validatePostal(sPostal) {
@@ -56,7 +56,7 @@
 							<!-- end postal code validation script -->
 							Address: <input type="text" name="usr-address" class="form-input">
 							<br> 
-							City: <input type="text" name="usr-city"class="form-input"> 
+							City: <input type="text" name="usr-city" class="form-input"> 
 							<br>
 							Province: 
 							<select name="usr-prov">
@@ -136,7 +136,7 @@
 							<textarea name="adulterant-desc" class="free-text"></textarea>
 						</div>
 						<div id="step8" class="show-it">
-							Please check the condition(s) that affect you:
+							Please check all conditions that affect you (1/3):
 							<div class="illness-container">
 								<label class="custom-check">ADD/ADHD
 								  <input type="checkbox" name="adhd" value="adhd" class="affected-by">
@@ -185,7 +185,7 @@
 							</div>
 						</div>
 						<div id="step9" class="show-it">
-							Please check the condition(s) that affect you:
+							Please check all conditions that affect you (2/3):
 							<div class="illness-container">
 								<label class="custom-check">Eating Disorder
 								  <input type="checkbox" name="eatd" value="eating_disorder" class="affected-by">
@@ -226,7 +226,7 @@
 							</div>
 						</div>
 						<div id="step10" class="show-it">
-							Please check the condition(s) that affect you:
+							Please check all conditions that affect you (3/3):
 							<div class="illness-container">
 								<label class="custom-check">Migraines
 								  <input type="checkbox" name="migr" value="migraine" class="affected-by">
@@ -273,7 +273,7 @@
 								<option value="no">No</option>
 							</select>
 							<br>
-							<div id="11-b">How often do you use it?</div>
+							<div id="11-b">How often?</div>
 							<div class="cannabis-radio" id="11-c">
 								<label class="custom-radio">Rarely
 								  <input type="radio" name="usage" value="rarely" class="howmuch">
@@ -334,7 +334,7 @@
 								<option value="no">No</option>
 							</select>
 							<br>
-							If yes to previous, would you continue to do so if you were unable to obtain a prescription for cannabis?
+						If yes to previous, would you continue to do so if you were unable to obtain a prescription for cannabis?
 							<select name="usr-continue">
 								<option value="yes">Yes</option>
 								<option value="no">No</option>
@@ -342,12 +342,13 @@
 							<br>							
 						</div>
 						<div id="step14" class="show-it">
-							Are you interested in growing Cannabis?
+						Are you interested in growing Cannabis?
 							<select name="grower" id="14-a">
 								<option value="yes">Yes</option>
 								<option value="no">No</option>
 							</select>
-							<div id="14-b">If yes to previous, who do you plan to grow Cannabis for? (check all that apply)</div><br>
+							<div id="14-b">Who do you plan to grow Cannabis for? (check all that apply)</div>
+							<br>
 							<div id="14-c">
 								<label class="custom-check">Myself
 									<input type="checkbox" name="personal" value="self" class="for-who">
@@ -360,7 +361,7 @@
 							</div>
 						</div>
 						<div id="step15" class="show-it">
-							<p>Thank-you for completing the form!</p>
+							<p>That's it!</p>
 							<p>If you are sure that all of the information you have entered is <strong>complete and accurate</strong>, click "Send" to submit your information.</p>  
 						</div>
 						<div id="conclusion" class="show-it">

@@ -7,19 +7,25 @@ $(document).ready(function(){
 	var backCounter = 1;
 	var crumbCounter = 1;
 	var insertSubstances = "";
-	var direction = "";
+
+	/* start make sure required fields have content (doesn't work)
+
+		var inputs = document.getElementsByClassName("form-input");
+		for(i = 0; i < inputs.length; i++) {
+			var currentInput = inputs[i];
+			
+		}
+
+		// end make sure required fields have content */
  
 	$('.nav-button').click(function(){
-		checkAdulterants();	
 
 		var value = $('.form-input:visible').filter(function () {
     	return this.value === '';
   		});
-
-		if (value.length == 0) {
-			
-			$('#step' + counter).hide();
-			
+  		
+  		if (value.length == 0) {
+  			$('#step' + counter).hide();
 			direction = this.id;
 			if (direction == "previous" && counter >= 2) {	
 				counter -= 1;
@@ -33,14 +39,43 @@ $(document).ready(function(){
 				while(!$("#step" + counter).hasClass("show-it")) {
 
 					if (direction == "previous" && counter >= 2) {	
-					counter -= 1;
+						counter -= 1;
 					} else if (direction == "next" && counter <= 14) {
-					counter += 1;
+						counter += 1;
 					}
 				} 
 				$('#step' + counter).fadeIn();
 			}
 
+				
+
+			
+
+			
+  		} else if (value.length > 0) {
+    		alert('Please fill out all required fields.');
+  		}
+
+
+
+  		if( $('.adulterants:checkbox:checked').length > 0 ){
+			$("#step7").addClass("show-it");
+			insertSubstances = $('input:checkbox:checked.adulterants').map(function () {
+			return this.value;
+			});
+			var inserted = document.getElementById('inserted');
+    		for(var i = 0; i < insertSubstances.length; i++){
+    			// add check to make sure that each element is not inserted more than once // 
+    			if (!(inserted.innerHTML.indexOf(insertSubstances[i]) != -1)) { 
+					inserted.innerHTML += "- " + insertSubstances[i] + "<br>";
+        		} else if ((inserted.innerHTML.indexOf(insertSubstances[i]) != -1)) { 
+    				$("#inserted").html($("#inserted").html().split("- " + insertSubstances[i] + "<br>").join(""));
+				}
+    		}
+			} else {
+				$("#step7").removeClass("show-it");
+			}
+  			
 			if (counter == 1) {
 				$('#previous').removeClass("make-table").hide();
 				crumbCounter = 1;
@@ -56,20 +91,64 @@ $(document).ready(function(){
 				$('.nav-button').show();
 				$('#next').html('<div id="next-text"><i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i></div>').show();
 				$('#previous').show();
-				crumbCounter = 4;		
-			}	
+				crumbCounter = 4;
 
-			check11();
-			check14();
-			check15();
-			highlightCrumb();
+				
+			}
 
-		} else if (value.length > 0) {
-		    		alert('Please fill out all required fields.');
-		}
+
+  		$('#11-a').on('change', function() {
+			    	if (this.value == 'yes') {
+			    		$("#11-b, #11-c").slideDown();
+			        	$("#step12, #step13").addClass("show-it")
+			      	}
+			      	else {
+			        	$("#11-b, #11-c").slideUp();
+			        	$("#step12, #step13").removeClass("show-it"); 	
+			        }
+			      
+			    });
+
+  		if ($('#step14').is(":visible")) {
+				$('#14-a').on('change', function() {
+			      if ( this.value == 'yes') {
+			        $("#14-b, #14-c").slideDown();
+			      }
+			      else {
+			        $("#14-b, #14-c").slideUp();
+			      } 
+			    });
+			}
+
+  		if (counter >= 15) {
+				$('#next').html('<input type="submit" name="submit-button" id="submit-button" value="&#xf1d8;">');
+				crumbCounter = 5;
+				$('#submit-button').click(function(){
+					$('#client-intake-form').submit();
+					$('.nav-button').removeClass('make-table').hide();
+					$('#breadcrumbs').hide();
+					$('#step15').html('');
+					$('#conclusion').fadeIn();
+				});
+			}
+
+
+
+		highlightCrumb();
 	});
 
-	// capture the client data on form submit and analyze it//
+
+	function highlightCrumb() {
+		for (i = 1; i < 6; i++) {
+			if (i == crumbCounter) {
+				$('#crumb' + i).addClass('text-green');
+			} else if (i != crumbCounter) {
+				$('#crumb' + i).removeClass('text-green');
+			}
+		}
+	}
+
+	// capture the client data on form submit //
 
 	$('#client-intake-form').on('submit', function(g){
 		g.preventDefault();
@@ -319,100 +398,4 @@ $(document).ready(function(){
 	console.log('score: ' + clientScore); 
 	console.log('recommeded tier: ' + category);
 	});
-
-	
-	// FUNCTIONS CALLED BY THE MAIN LOOP 
-
-	// check for adulterant use and display extra step if yes
-
-	function checkAdulterants() {
-		if( $('.adulterants:checkbox:checked').length > 0 ){
-		$("#step7").addClass("show-it");
-		insertSubstances = $('input:checkbox:checked.adulterants').map(function () {
-		return this.value;
-		});
-		var inserted = document.getElementById('inserted');
-		for(var i = 0; i < insertSubstances.length; i++){
-			// add check to make sure that each element is not inserted more than once // 
-				if (!(inserted.innerHTML.indexOf(insertSubstances[i]) != -1)) { 
-					inserted.innerHTML += "- " + insertSubstances[i] + "<br>";
-	    		} else if ((inserted.innerHTML.indexOf(insertSubstances[i]) != -1)) { 
-					$("#inserted").html($("#inserted").html().split("- " + insertSubstances[i] + "<br>").join(""));
-				}
-			}
-		} else {
-			$("#step7").removeClass("show-it");
-		}
-	}
-
-	// end
-
-	// display optional content on step 11
-
-	function check11() {
-		$('#11-a').on('change', function() {
-	    	if (this.value == 'yes') {
-	    		$("#11-b, #11-c").slideDown();
-	        	$("#step12, #step13").addClass("show-it")
-	      	}
-	      	else {
-	        	$("#11-b, #11-c").slideUp();
-	        	$("#step12, #step13").removeClass("show-it"); 	
-	        }
-	    });
-	}
-
-    // end
- 
-	// display optional content on step 14
-	function check14 () {
-		if ($('#step14').is(":visible")) {
-			$('#14-a').on('change', function() {
-		      if ( this.value == 'yes') {
-		        $("#14-b, #14-c").slideDown();
-		      }
-		      else {
-		        $("#14-b, #14-c").slideUp();
-		      } 
-		    });
-		}
-	}
-
-	// end
-
-	// make sure the correct breadcrumb displays for each step
-
-	function highlightCrumb() {
-		for (i = 1; i < 6; i++) {
-			if (i == crumbCounter) {
-				$('#crumb' + i).addClass('text-green');
-			} else if (i != crumbCounter) {
-				$('#crumb' + i).removeClass('text-green');
-			}
-		}
-	}
-
-	// end
-
-	// replace the next button with submit when the final step is reached
-
-	function check15() {
-		if (counter >= 15) {
-				$('#next').html('<input type="submit" name="submit-button" id="submit-button" value="&#xf1d8;">');
-				crumbCounter = 5;
-				$('#submit-button').click(function(){
-					$('#client-intake-form').submit();
-					$('.nav-button').removeClass('make-table').hide();
-					$('#breadcrumbs').hide();
-					$('#step15').html('');
-					$('#conclusion').fadeIn();
-				});
-		}
-	}
-
-	// end
-
-
-
-
 });
