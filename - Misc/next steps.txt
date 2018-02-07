@@ -1,9 +1,0 @@
-- Finish disease evaluating
-
-- Finish final scoring and assign stream suggestion
-
-- Aesthetics
-
-- Write to text file
-
-- write to database
