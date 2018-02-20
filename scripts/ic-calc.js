@@ -288,8 +288,16 @@ $(document).ready(function(){
 		category = "BASIC @ 1g/day"
 	}
 
-	// output to console //
+	// output to console or DOM - replace with ajax for production //
 
+	alert('INFO SUBMITTED\nFIRST NAME: ' + firstName + ' | LAST NAME: ' + lastName + '\nAGE: ' + age + ' | SEX: ' + sex + '\nSTREET ADDRESS: ' + address + ' | CITY: ' + city
+	+ '\nPROVINCE: ' + prov + ' | POSTAL CODE: ' + post + '\nEMAIL: ' + email + ' | TEL: ' + telephone + '\nFAMILY DOCTOR: ' + doctor + ' | DOCTOR CITY: ' + doctorCity
+	+ '\nAILMENTS: ' + diseases + '\nSUBSTANCE USE: ' + substances + '\nUSE PATTERN: ' + substanceDesc + '\nCURRENT CANNABIS USER: ' + currently
+	+ '\nCANNABIS FREQUENCY: ' + frequency + '\nCANNABIS CONSUMPTION ROUTE: ' + route + '\nOBTAINED ILLEGAL: ' + howObtained + ' | WOULD CONTINUE ILLEGAL: ' + wouldContinue
+	+ '\nGROW INTEREST: ' + cultivate + '\nGROW FOR: ' + consume + '\nSEX SCORE: ' + sexModifier + '\nILLNESS SCORE: ' + illnessScore + '\nCONSUMPTION SCORE: ' + consumeScore
+	+ '\nTOTAL SCORE: ' + clientScore + '\nRECOMENDATION: ' + category);
+	
+	/*
 	console.log('submitted');
 	console.log('first: ' + firstName); 
 	console.log('last: ' + lastName); 
@@ -318,6 +326,8 @@ $(document).ready(function(){
 	console.log('consumption score: ' + consumeScore);
 	console.log('score: ' + clientScore); 
 	console.log('recommeded tier: ' + category);
+	*/
+
 	});
 
 	
