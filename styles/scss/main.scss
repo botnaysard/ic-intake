@@ -286,6 +286,14 @@ span {
 	border: none;
 }
 
+#creator-info {
+	width: 500px;
+	margin: 0px auto;
+	text-align: center;
+	padding-top: 20px;
+	color: $primary-light;
+}
+
 
 @for $i from 2 through 15 {
   #step#{$i} { display: none; }
